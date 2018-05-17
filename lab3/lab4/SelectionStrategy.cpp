@@ -47,7 +47,18 @@ Parents* SelectionStrategy::selectParents(const GA_Population& pop, StrategyType
 
 std::size_t SelectionStrategy::tournament(const GA_Population & pop)
 {
-	throw std::logic_error("Not Implemented");
+	const size_t ui_TOURNAMENT_SIZE = 10;
+	std::size_t ui_rand = new std::size_t[ui_TOURNAMENT_SIZE];
+
+	for(size_t i = 0; i < 10; i++)
+	{
+		size_t temp = getRandomRealInRange<size_t>(0, pop.size());
+		ui_rand[i] = temp;
+	}
+
+	size_t temp = getRandomRealInRange<size_t>(0, ui_TOURNAMENT_SIZE);
+
+	return ui_rand[temp];
 } // end method tournament
 
 
